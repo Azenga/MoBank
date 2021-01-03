@@ -4,6 +4,8 @@
     <!-- Button Texts -->
     <string name="login_btn_text">Login</string>
     <string name="register_btn_text">Register</string>
+    <string name="continue_text">Continue</string>
+    <string name="finish_text">Finish</string>
 
     <!-- Input Fields Hints -->
     <string name="email_hint">Email Address</string>
@@ -14,5 +16,18 @@
     <string name="sign_up_text">Sign Up</string>
     <string name="have_account_negative_text">Don\'t have an account yet ?</string>
     <string name="have_account_positive_text">Already have an account ?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Title Strings -->
+    <string name="customer_details_text">Customer Details</string>
+    <string name="transaction_details_text">Transaction Details</string>
+    <string name="transactions_text">Transactions</string>
+    <string name="add_transaction_text">Add Transaction</string>
+    <string name="home_text">Home</string>
+
+    <!-- Option Menu Strings -->
+    <string name="sign_out_text">Sign Out</string>
 
 </resources>

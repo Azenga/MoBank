@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="ke.co.mobank.ui.HomeFragment"
+        android:label="@string/home_text"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_browse_transactions"
+            app:destination="@id/transactionsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionsListFragment"
+        android:name="ke.co.mobank.ui.transactions.list.TransactionsListFragment"
+        android:label="@string/transactions_text"
+        tools:layout="@layout/transactions_list_fragment">
+        <action
+            android:id="@+id/action_get_customer_details"
+            app:destination="@id/customerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerDetailsFragment"
+        android:name="ke.co.mobank.ui.transactions.add.CustomerDetailsFragment"
+        android:label="@string/add_transaction_text"
+        tools:layout="@layout/fragment_customer_details">
+        <action
+            android:id="@+id/action_get_transaction_details"
+            app:destination="@id/transactionDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionDetailsFragment"
+        android:name="ke.co.mobank.ui.transactions.add.TransactionDetailsFragment"
+        android:label="@string/add_transaction_text"
+        tools:layout="@layout/fragment_transaction_details">
+        <action
+            android:id="@+id/action_transaction_stored"
+            app:destination="@id/transactionsListFragment" />
+    </fragment>
+</navigation>
