@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MoBank</string>
+
+    <!-- Button Texts -->
+    <string name="login_btn_text">Login</string>
+    <string name="register_btn_text">Register</string>
+
+    <!-- Input Fields Hints -->
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+
 </resources>
