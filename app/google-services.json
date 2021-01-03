@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "553898356544",
+    "project_id": "mobank-35f3f",
+    "storage_bucket": "mobank-35f3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553898356544:android:bddc5772ce37f264a914a5",
+        "android_client_info": {
+          "package_name": "ke.co.mobank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553898356544-kqg16sj00c4gsttoc7cpva6ugr0255hv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkV8F4FSIPafYDSfGKpiTBJwOpgASAq50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553898356544-kqg16sj00c4gsttoc7cpva6ugr0255hv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
