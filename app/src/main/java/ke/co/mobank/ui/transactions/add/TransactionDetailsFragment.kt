@@ -5,15 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
 import ke.co.mobank.R
+import ke.co.mobank.databinding.FragmentTransactionDetailsBinding
 
 class TransactionDetailsFragment : Fragment() {
+
+    private lateinit var binding: FragmentTransactionDetailsBinding
+    private lateinit var navController: NavController
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transaction_details, container, false)
+        binding = FragmentTransactionDetailsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.finishButton.setOnClickListener { navController.navigate(R.id.transactionsListFragment) }
     }
 }
