@@ -9,4 +9,10 @@
     <string name="email_hint">Email Address</string>
     <string name="password_hint">Password</string>
 
+    <!-- TextView Texts -->
+    <string name="sign_in_text">Sign In</string>
+    <string name="sign_up_text">Sign Up</string>
+    <string name="have_account_negative_text">Don\'t have an account yet ?</string>
+    <string name="have_account_positive_text">Already have an account ?</string>
+
 </resources>
