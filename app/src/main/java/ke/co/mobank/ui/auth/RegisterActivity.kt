@@ -55,12 +55,12 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun register(email: String, password: String) {
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { loginTask ->
-                if (loginTask.isSuccessful) sendToMain()
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { registerTask ->
+                if (registerTask.isSuccessful) sendToMain()
                 else {
-                    Log.e(TAG, "login: Login Error", loginTask.exception)
-                    Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
+                    Log.e(TAG, "register: Register Error", registerTask.exception)
+                    Toast.makeText(this, "Registration Failed", Toast.LENGTH_SHORT).show()
                 }
             }
 
