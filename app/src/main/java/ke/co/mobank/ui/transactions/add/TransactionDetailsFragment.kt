@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import ke.co.mobank.R
 import ke.co.mobank.databinding.FragmentTransactionDetailsBinding
 
@@ -25,6 +26,8 @@ class TransactionDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.finishButton.setOnClickListener { navController.navigate(R.id.transactionsListFragment) }
+        navController = Navigation.findNavController(view)
+
+        binding.finishButton.setOnClickListener { navController.navigate(R.id.action_transaction_stored) }
     }
 }
