@@ -7,18 +7,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import ke.co.mobank.R
 import ke.co.mobank.data.models.Transaction
 import ke.co.mobank.databinding.FragmentTransactionDetailsBinding
 import ke.co.mobank.internal.Constants
+import ke.co.mobank.ui.transactions.TransactionViewModel
 
 class TransactionDetailsFragment : Fragment() {
 
     val TAG = "TransactionDetailsFrag";
 
     private lateinit var binding: FragmentTransactionDetailsBinding
+    private lateinit var viewModel: TransactionViewModel
     private lateinit var navController: NavController
 
     private lateinit var transaction: Transaction
@@ -87,14 +92,26 @@ class TransactionDetailsFragment : Fragment() {
                 transaction.transactionType = type
                 transaction.transactionPlatform = platform
 
-                Log.i(TAG, "onViewCreated: $transaction")
-
-                navController.navigate(R.id.action_transaction_stored)
+                viewModel.addTransaction(transaction)
 
             } catch (exception: NumberFormatException) {
                 Log.e(TAG, "onViewCreated: transaction details validation: ", exception)
             }
 
         }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(TransactionViewModel::class.java)
+
+        viewModel.transaction.observe(
+            viewLifecycleOwner,
+            Observer { transaction ->
+                Log.i(TAG, "onViewCreated: $transaction");
+                Toast.makeText(requireContext(), "Transaction Added", Toast.LENGTH_SHORT).show()
+                navController.navigate(R.id.action_transaction_stored)
+            })
     }
 }

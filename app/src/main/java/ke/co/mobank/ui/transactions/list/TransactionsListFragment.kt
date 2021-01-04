@@ -10,10 +10,11 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import ke.co.mobank.R
 import ke.co.mobank.databinding.TransactionsListFragmentBinding
+import ke.co.mobank.ui.transactions.TransactionViewModel
 
 class TransactionsListFragment : Fragment() {
 
-    private lateinit var viewModel: TransactionsListViewModel
+    private lateinit var viewModel: TransactionViewModel
     private lateinit var binding: TransactionsListFragmentBinding
     private lateinit var navController: NavController
 
@@ -37,7 +38,7 @@ class TransactionsListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(TransactionsListViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(TransactionViewModel::class.java)
     }
 
 }
