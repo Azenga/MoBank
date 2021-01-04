@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/transactionsListFragment"
         android:title="@string/transactions_text" />
     <item
-        android:id="@+id/customerDetailsFragment"
-        android:title="@string/add_transaction_text" />
-    <item android:id="@+id/sign_out_item" android:title="@string/sign_out_text" />
+        android:id="@+id/sign_out_item"
+        android:title="@string/sign_out_text" />
 
 </menu>

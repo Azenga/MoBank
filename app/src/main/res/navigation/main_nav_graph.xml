@@ -39,6 +39,8 @@
         tools:layout="@layout/fragment_transaction_details">
         <action
             android:id="@+id/action_transaction_stored"
-            app:destination="@id/transactionsListFragment" />
+            app:destination="@id/transactionsListFragment"
+            app:popUpTo="@id/transactionsListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
