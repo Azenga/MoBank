@@ -42,5 +42,8 @@
             app:destination="@id/transactionsListFragment"
             app:popUpTo="@id/transactionsListFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="transaction"
+            app:argType="ke.co.mobank.data.models.Transaction" />
     </fragment>
 </navigation>

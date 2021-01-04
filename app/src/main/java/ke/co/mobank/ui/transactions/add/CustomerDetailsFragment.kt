@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import ke.co.mobank.R
+import ke.co.mobank.data.models.Transaction
 import ke.co.mobank.databinding.FragmentCustomerDetailsBinding
 
 class CustomerDetailsFragment : Fragment() {
@@ -30,6 +30,25 @@ class CustomerDetailsFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
 
-        binding.continueButton.setOnClickListener { navController.navigate(R.id.action_get_transaction_details) }
+        binding.continueButton.setOnClickListener {
+            val name = binding.customerNameField.text.toString()
+            val contact = binding.customerContactField.text.toString()
+
+            if (name.isBlank()) {
+                binding.customerNameField.error = "Customer Name is required"
+                return@setOnClickListener
+            }
+
+            if (contact.isBlank()) {
+                binding.customerContactField.error = "Customer Contact is required"
+                return@setOnClickListener
+            }
+
+            val transaction = Transaction(customerName = name, customerContact = contact)
+
+            val action = CustomerDetailsFragmentDirections.actionGetTransactionDetails(transaction)
+
+            navController.navigate(action)
+        }
     }
 }
