@@ -11,10 +11,12 @@ class TransactionViewModel : ViewModel(), TransactionRepository.TransactionTasks
     private val _transaction: MutableLiveData<Transaction> = MutableLiveData()
     private val _transactions: MutableLiveData<List<Transaction>> = MutableLiveData()
     private val _exception: MutableLiveData<Exception> = MutableLiveData()
+    private val _transactionDeleted: MutableLiveData<Boolean> = MutableLiveData()
 
     val transaction: LiveData<Transaction> get() = _transaction
     val transactions: LiveData<List<Transaction>> get() = _transactions
     val exception: LiveData<Exception> get() = _exception
+    val transactionDelete: LiveData<Boolean> get() = _transactionDeleted
 
     private val transactionRepository by lazy { TransactionRepository(this) }
 
@@ -27,6 +29,14 @@ class TransactionViewModel : ViewModel(), TransactionRepository.TransactionTasks
     }
 
     override fun onTransactionAdded(transaction: Transaction) {
+        _transaction.postValue(transaction)
+    }
+
+    override fun onTransactionDelete(transactionDelete: Boolean) {
+        _transactionDeleted.postValue(transactionDelete)
+    }
+
+    override fun onTransactionUpdated(transaction: Transaction) {
         _transaction.postValue(transaction)
     }
 
