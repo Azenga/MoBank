@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_get_customer_details"
             app:destination="@id/customerDetailsFragment" />
+        <action
+            android:id="@+id/action_view_transaction_details"
+            app:destination="@id/singleTransactionFragment" />
     </fragment>
     <fragment
         android:id="@+id/customerDetailsFragment"
@@ -42,6 +45,30 @@
             app:destination="@id/transactionsListFragment"
             app:popUpTo="@id/transactionsListFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="transaction"
+            app:argType="ke.co.mobank.data.models.Transaction" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleTransactionFragment"
+        android:name="ke.co.mobank.ui.transactions.details.SingleTransactionFragment"
+        android:label="fragment_single_transaction"
+        tools:layout="@layout/fragment_single_transaction" >
+        <action
+            android:id="@+id/action_singleTransactionFragment_to_transactionsListFragment"
+            app:destination="@id/transactionsListFragment" />
+        <argument
+            android:name="transaction"
+            app:argType="ke.co.mobank.data.models.Transaction" />
+        <action
+            android:id="@+id/action_edit_transaction"
+            app:destination="@id/editTransactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTransactionFragment"
+        android:name="ke.co.mobank.ui.transactions.details.EditTransactionFragment"
+        android:label="fragment_edit_transaction"
+        tools:layout="@layout/fragment_edit_transaction" >
         <argument
             android:name="transaction"
             app:argType="ke.co.mobank.data.models.Transaction" />
