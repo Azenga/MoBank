@@ -113,5 +113,9 @@ class TransactionDetailsFragment : Fragment() {
                 Toast.makeText(requireContext(), "Transaction Added", Toast.LENGTH_SHORT).show()
                 navController.navigate(R.id.action_transaction_stored)
             })
+        viewModel.exception.observe(viewLifecycleOwner, Observer {
+            Log.e(TAG, "onActivityCreated: ", it)
+            Toast.makeText(requireContext(), it.localizedMessage, Toast.LENGTH_SHORT).show()
+        })
     }
 }

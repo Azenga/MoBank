@@ -42,9 +42,7 @@
         android:layout_marginTop="@dimen/std_widget_spacing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transaction_id_layout"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="242dp">
+        app:layout_constraintTop_toBottomOf="@id/transaction_id_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/transaction_amount_field"
