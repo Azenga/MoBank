@@ -24,6 +24,14 @@ class TransactionViewModel : ViewModel(), TransactionRepository.TransactionTasks
         transactionRepository.addTransaction(transaction)
     }
 
+    fun updateTransaction(transaction: Transaction) {
+        transactionRepository.updateTransaction(transaction)
+    }
+
+    fun deleteTransaction(transaction: Transaction) {
+        transactionRepository.deleteTransaction(transaction)
+    }
+
     fun readAllTransactions() {
         transactionRepository.readAllTransactions()
     }
