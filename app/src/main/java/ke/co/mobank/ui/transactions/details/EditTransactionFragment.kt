@@ -5,14 +5,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import ke.co.mobank.R
 import ke.co.mobank.data.models.Transaction
 import ke.co.mobank.databinding.FragmentEditTransactionBinding
+import ke.co.mobank.internal.Constants
 import ke.co.mobank.ui.transactions.TransactionViewModel
 
 private const val TAG = "EditTransactionFrag"
@@ -43,8 +46,24 @@ class EditTransactionFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
 
+
+        val typeAdapter = ArrayAdapter<String>(
+            requireContext(),
+            R.layout.dropdown_menu_popup_item,
+            Constants.TRANSACTION_TYPES
+        )
+        binding.transactionTypeField.setAdapter(typeAdapter)
+
+        val platformAdapter = ArrayAdapter<String>(
+            requireContext(),
+            R.layout.dropdown_menu_popup_item,
+            Constants.PLATFORMS
+        )
+        binding.transactionPlatformField.setAdapter(platformAdapter)
+
         binding.customerContactField.setText(transaction.customerContact)
         binding.customerNameField.setText(transaction.customerName)
+        binding.customerNationalIdField.setText(transaction.customerNationalId)
         binding.transactionAmountField.setText(transaction.transactionAmount.toString())
         binding.transactionTypeField.setText(transaction.transactionType)
         binding.transactionPlatformField.setText(transaction.transactionPlatform)
@@ -53,12 +72,19 @@ class EditTransactionFragment : Fragment() {
             try {
                 val name = binding.customerNameField.text.toString()
                 val contact = binding.customerContactField.text.toString()
+                val nationalId = binding.customerNationalIdField.text.toString()
                 val amount = binding.transactionAmountField.text.toString().toDouble()
                 val type = binding.transactionTypeField.text.toString()
                 val platform = binding.transactionPlatformField.text.toString()
 
                 if (name.isBlank()) {
                     binding.customerNameField.error = "Customer Name is required"
+                    return@setOnClickListener
+                }
+
+                if (nationalId.isBlank() || nationalId.length < 8) {
+                    binding.customerContactField.error =
+                        "Valid National Identification Number is required"
                     return@setOnClickListener
                 }
 
@@ -82,6 +108,7 @@ class EditTransactionFragment : Fragment() {
                 transaction.transactionPlatform = platform
                 transaction.customerName = name
                 transaction.customerName = contact
+                transaction.customerNationalId = nationalId
 
                 viewModel.updateTransaction(transaction)
 

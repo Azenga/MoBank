@@ -14,6 +14,7 @@ import androidx.navigation.Navigation
 import ke.co.mobank.data.models.Transaction
 import ke.co.mobank.databinding.FragmentSingleTransactionBinding
 import ke.co.mobank.ui.transactions.TransactionViewModel
+import java.time.format.DateTimeFormatter
 
 private const val TAG = "SingleTransactionFrag"
 
