@@ -25,12 +25,17 @@ class TransactionsAdapter(private val itemClickListener: TransactionItemClickLis
 
     override fun onBindViewHolder(holder: TransactionHolder, position: Int) {
 
-        holder.binding.contactTextView.text = transactions!![position].customerContact
-        holder.binding.amountTextView.text = transactions!![position].transactionAmount.toString()
-        holder.binding.typeTextView.text = transactions!![position].transactionType.toString()
-        holder.binding.platformTextView.text = transactions!![position].transactionPlatform
 
-        holder.binding.root.setOnClickListener { itemClickListener?.onItemClick(transactions!![position]) }
+        val transaction = transactions!![position];
+
+        holder.binding.contactTextView.text = transaction.customerContact
+        holder.binding.amountTextView.text = transaction.transactionAmount.toString()
+        holder.binding.typeTextView.text = transaction.transactionType.toString()
+        holder.binding.platformTextView.text = transaction.transactionPlatform
+        holder.binding.nationalIdTextView.text =
+            if (transaction.customerNationalId == null) "ID MIA" else transaction.customerNationalId
+
+        holder.binding.root.setOnClickListener { itemClickListener?.onItemClick(transaction) }
     }
 
     inner class TransactionHolder(val binding: TransactionItemBinding) :

@@ -3,4 +3,5 @@
     <dimen name="std_activity_padding">16dp</dimen>
     <dimen name="std_widget_spacing">16dp</dimen>
     <dimen name="home_fragment_text_views_padding">12dp</dimen>
+    <dimen name="std_section_spacing">24dp</dimen>
 </resources>

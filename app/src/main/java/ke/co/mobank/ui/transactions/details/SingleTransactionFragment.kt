@@ -46,6 +46,9 @@ class SingleTransactionFragment : Fragment() {
 
         binding.customerNameTextView.text = transaction.customerName
         binding.customerContactTextView.text = transaction.customerContact
+        binding.customerNationalIdTextView.text =
+            if (transaction.customerNationalId != null) transaction.customerNationalId else "No Set"
+
         binding.transactionIdTextView.text = transaction.transactionId
         binding.transactionAmountTextView.text = transaction.transactionAmount.toString()
         binding.transactionPlatformTextView.text = transaction.transactionPlatform

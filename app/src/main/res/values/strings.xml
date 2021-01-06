@@ -14,8 +14,9 @@
     <string name="email_hint">Email Address</string>
     <string name="password_hint">Password</string>
     <string name="name_hint">Name</string>
+    <string name="national_id_hint">National ID</string>
     <string name="contact_hint">Contact</string>
-    <string name="id_hint">ID</string>
+    <string name="id_hint">Code</string>
     <string name="amount_hint">Amount</string>
     <string name="time_hint">Time</string>
     <string name="type_hint">Type</string>

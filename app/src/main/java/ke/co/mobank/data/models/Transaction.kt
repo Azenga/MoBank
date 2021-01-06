@@ -9,6 +9,7 @@ data class Transaction(
     @DocumentId val id: String? = null,
     var customerName: String? = null,
     var customerContact: String? = null,
+    var customerNationalId: String? = null,
     var transactionId: String? = null,
     var transactionAmount: Double? = null,
     @ServerTimestamp

@@ -38,6 +38,28 @@
         app:layout_constraintTop_toTopOf="@id/customer_name_label"
         tools:text="@tools:sample/full_names" />
 
+
+    <TextView
+        android:id="@+id/customer_national_id_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        app:layout_constraintBottom_toBottomOf="@id/customer_national_id_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/customer_national_id_label"
+        tools:text="@tools:sample/us_zipcodes" />
+
+
+    <TextView
+        android:id="@+id/customer_national_id_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_widget_spacing"
+        android:text="@string/national_id_hint"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customer_name_label" />
+
     <TextView
         android:id="@+id/customer_contact_label"
         android:layout_width="wrap_content"
@@ -46,7 +68,7 @@
         android:text="@string/contact_hint"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/customer_name_label" />
+        app:layout_constraintTop_toBottomOf="@id/customer_national_id_label" />
 
     <TextView
         android:id="@+id/customer_contact_text_view"
@@ -84,11 +106,9 @@
         android:id="@+id/transaction_id_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constraintBottom_toBottomOf="@id/transaction_id_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transaction_details_label"
         app:layout_constraintTop_toTopOf="@id/transaction_id_label"
         tools:text="@tools:sample/lorem" />
 
@@ -108,11 +128,9 @@
         android:id="@+id/transaction_amount_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constraintBottom_toBottomOf="@id/transaction_amount_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transaction_details_label"
         app:layout_constraintTop_toTopOf="@id/transaction_amount_label"
         tools:text="@tools:sample/lorem" />
 
@@ -131,11 +149,9 @@
         android:id="@+id/transaction_type_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constraintBottom_toBottomOf="@id/transaction_type_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transaction_details_label"
         app:layout_constraintTop_toTopOf="@id/transaction_type_label"
         tools:text="@tools:sample/lorem" />
 
@@ -155,11 +171,9 @@
         android:id="@+id/transaction_platform_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constraintBottom_toBottomOf="@id/transaction_platform_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transaction_details_label"
         app:layout_constraintTop_toTopOf="@id/transaction_platform_label"
         tools:text="@tools:sample/lorem" />
 
@@ -179,11 +193,9 @@
         android:id="@+id/transaction_time_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
         app:layout_constraintBottom_toBottomOf="@id/transaction_time_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transaction_details_label"
         app:layout_constraintTop_toTopOf="@id/transaction_time_label"
         tools:text="@tools:sample/date/hhmmss" />
 

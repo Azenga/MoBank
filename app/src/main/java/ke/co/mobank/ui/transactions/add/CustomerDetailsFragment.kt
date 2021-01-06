@@ -33,9 +33,17 @@ class CustomerDetailsFragment : Fragment() {
         binding.continueButton.setOnClickListener {
             val name = binding.customerNameField.text.toString()
             val contact = binding.customerContactField.text.toString()
+            val nationalId = binding.customerContactField.text.toString()
+
 
             if (name.isBlank()) {
                 binding.customerNameField.error = "Customer Name is required"
+                return@setOnClickListener
+            }
+
+            if (nationalId.isBlank() || nationalId.length < 8) {
+                binding.customerContactField.error =
+                    "Valid National Identification Number is required"
                 return@setOnClickListener
             }
 
@@ -44,7 +52,11 @@ class CustomerDetailsFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            val transaction = Transaction(customerName = name, customerContact = contact)
+            val transaction = Transaction(
+                customerName = name,
+                customerContact = contact,
+                customerNationalId = nationalId
+            )
 
             val action = CustomerDetailsFragmentDirections.actionGetTransactionDetails(transaction)
 
