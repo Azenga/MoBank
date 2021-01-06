@@ -18,9 +18,9 @@ import ke.co.mobank.databinding.FragmentTransactionDetailsBinding
 import ke.co.mobank.internal.Constants
 import ke.co.mobank.ui.transactions.TransactionViewModel
 
-class TransactionDetailsFragment : Fragment() {
+private const val TAG = "TransactionDetailsFrag"
 
-    val TAG = "TransactionDetailsFrag";
+class TransactionDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentTransactionDetailsBinding
     private lateinit var viewModel: TransactionViewModel

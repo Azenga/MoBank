@@ -34,7 +34,9 @@
     <string name="customer_details_text">Customer Details</string>
     <string name="transaction_details_text">Transaction Details</string>
     <string name="transactions_text">Transactions</string>
+    <string name="transaction_text">Transaction</string>
     <string name="add_transaction_text">Add Transaction</string>
+    <string name="edit_transaction_text">Edit Transaction</string>
     <string name="home_text">Home</string>
 
     <!-- Option Menu Strings -->
