@@ -60,19 +60,24 @@ class TransactionsListFragment : Fragment(), TransactionsAdapter.TransactionItem
                 DividerItemDecoration.VERTICAL
             )
         )
+
         binding.transactionsRecyclerView.adapter = transactionsAdapter
 
         val action = TransactionsListFragmentDirections.actionGetCustomerDetails()
+
         binding.addTransactionFab.setOnClickListener { navController.navigate(action) }
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(TransactionViewModel::class.java)
 
-        viewModel.readAllTransactions()
+        viewModel.readAllTransactions(platform)
 
         viewModel.transactions.observe(viewLifecycleOwner, Observer { transactions ->
+            Toast.makeText(requireContext(), "Size: ${transactions.size}", Toast.LENGTH_SHORT)
+                .show()
             transactionsAdapter.transactions = transactions
         })
 

@@ -1,8 +1,9 @@
 package ke.co.mobank.data.repositories
 
-import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import ke.co.mobank.data.models.Transaction
+
+const val TAG = "TransactionRepository"
 
 class TransactionRepository(private val transactionTasksListener: TransactionTasksListener?) {
 
@@ -22,17 +23,29 @@ class TransactionRepository(private val transactionTasksListener: TransactionTas
             }
     }
 
-    fun readAllTransactions() {
-        firebaseFirestore.collection("transactions")
-            .addSnapshotListener { value, error ->
+    fun readAllTransactions(platform: String?) {
 
-                if (error != null) {
-                    transactionTasksListener?.onException(error)
-                    return@addSnapshotListener
+        if (platform == null) {
+            firebaseFirestore.collection("transactions")
+                .addSnapshotListener { value, error ->
+                    if (error != null) {
+                        transactionTasksListener?.onException(error)
+                        return@addSnapshotListener
+                    }
+                    transactionTasksListener?.onTransactionsRetrieved(value?.toObjects(Transaction::class.java))
                 }
+        } else {
+            firebaseFirestore.collection("transactions")
+                .whereEqualTo("transactionPlatform", platform)
+                .addSnapshotListener { value, error ->
+                    if (error != null) {
+                        transactionTasksListener?.onException(error)
+                        return@addSnapshotListener
+                    }
+                    transactionTasksListener?.onTransactionsRetrieved(value?.toObjects(Transaction::class.java))
+                }
+        }
 
-                transactionTasksListener?.onTransactionsRetrieved(value?.toObjects(Transaction::class.java))
-            }
     }
 
     fun deleteTransaction(transaction: Transaction) {

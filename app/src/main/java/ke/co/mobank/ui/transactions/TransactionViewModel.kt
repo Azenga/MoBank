@@ -1,10 +1,13 @@
 package ke.co.mobank.ui.transactions
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ke.co.mobank.data.models.Transaction
 import ke.co.mobank.data.repositories.TransactionRepository
+
+private const val TAG = "TransactionViewModel"
 
 class TransactionViewModel : ViewModel(), TransactionRepository.TransactionTasksListener {
 
@@ -32,8 +35,9 @@ class TransactionViewModel : ViewModel(), TransactionRepository.TransactionTasks
         transactionRepository.deleteTransaction(transaction)
     }
 
-    fun readAllTransactions() {
-        transactionRepository.readAllTransactions()
+    fun readAllTransactions(platform: String?) {
+        transactionRepository.readAllTransactions(platform)
+        Log.i(TAG, "readAllTransactions: platform => $platform")
     }
 
     override fun onTransactionAdded(transaction: Transaction) {
