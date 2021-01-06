@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ke.co.mobank.data.models.Transaction
 import ke.co.mobank.databinding.TransactionItemBinding
 
-class TransactionsAdapter : RecyclerView.Adapter<TransactionsAdapter.TransactionHolder>() {
+class TransactionsAdapter(private val itemClickListener: TransactionItemClickListener?) :
+    RecyclerView.Adapter<TransactionsAdapter.TransactionHolder>() {
 
     var transactions: List<Transaction>? = null
         set(value) {
@@ -28,8 +29,14 @@ class TransactionsAdapter : RecyclerView.Adapter<TransactionsAdapter.Transaction
         holder.binding.amountTextView.text = transactions!![position].transactionAmount.toString()
         holder.binding.typeTextView.text = transactions!![position].transactionType.toString()
         holder.binding.platformTextView.text = transactions!![position].transactionPlatform
+
+        holder.binding.root.setOnClickListener { itemClickListener?.onItemClick(transactions!![position]) }
     }
 
     inner class TransactionHolder(val binding: TransactionItemBinding) :
         RecyclerView.ViewHolder(binding.root)
+
+    interface TransactionItemClickListener {
+        fun onItemClick(transaction: Transaction)
+    }
 }
