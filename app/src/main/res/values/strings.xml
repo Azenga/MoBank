@@ -42,4 +42,12 @@
     <!-- Option Menu Strings -->
     <string name="sign_out_text">Sign Out</string>
 
+    <!-- Platform Names -->
+    <string name="m_pesa_text">M-Pesa</string>
+    <string name="kcb_text">KCB</string>
+    <string name="equity_text">Equity</string>
+    <string name="coop_text">Cooperative</string>
+    <string name="airtel_text">Airtel</string>
+    <string name="telcom_text">Telcom</string>
+
 </resources>

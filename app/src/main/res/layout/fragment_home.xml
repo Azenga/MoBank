@@ -1,15 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/std_activity_padding"
     tools:context=".ui.HomeFragment">
 
-    <TextView
+    <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/home_text"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+        android:columnCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/mpesa_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/home_fragment_text_views_padding"
+            android:text="@string/m_pesa_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:drawableTopCompat="@drawable/ic_baseline_account_balance_24" />
+
+
+        <TextView
+            android:id="@+id/kcb_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/home_fragment_text_views_padding"
+            android:text="@string/kcb_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:drawableTint="@android:color/holo_green_light"
+            app:drawableTopCompat="@drawable/ic_baseline_account_balance_24" />
+
+
+        <TextView
+            android:id="@+id/equity_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/home_fragment_text_views_padding"
+            android:text="@string/equity_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:drawableTint="@android:color/holo_orange_dark"
+            app:drawableTopCompat="@drawable/ic_baseline_account_balance_24" />
+
+
+        <TextView
+            android:id="@+id/airtel_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/home_fragment_text_views_padding"
+            android:text="@string/airtel_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:drawableTint="@android:color/holo_red_light"
+            app:drawableTopCompat="@drawable/ic_baseline_account_balance_24" />
+
+
+        <TextView
+            android:id="@+id/coop_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/home_fragment_text_views_padding"
+            android:text="@string/coop_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:drawableTint="@android:color/holo_green_dark"
+            app:drawableTopCompat="@drawable/ic_baseline_account_balance_24" />
+
+
+        <TextView
+            android:id="@+id/telcom_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/home_fragment_text_views_padding"
+            android:text="@string/telcom_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:drawableTint="@android:color/holo_blue_light"
+            app:drawableTopCompat="@drawable/ic_baseline_account_balance_24" />
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

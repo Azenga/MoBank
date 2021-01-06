@@ -25,6 +25,11 @@
         <action
             android:id="@+id/action_view_transaction_details"
             app:destination="@id/singleTransactionFragment" />
+        <argument
+            android:name="platform"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/customerDetailsFragment"
@@ -54,9 +59,6 @@
         android:name="ke.co.mobank.ui.transactions.details.SingleTransactionFragment"
         android:label="@string/transaction_text"
         tools:layout="@layout/fragment_single_transaction">
-        <action
-            android:id="@+id/action_singleTransactionFragment_to_transactionsListFragment"
-            app:destination="@id/transactionsListFragment" />
         <argument
             android:name="transaction"
             app:argType="ke.co.mobank.data.models.Transaction" />

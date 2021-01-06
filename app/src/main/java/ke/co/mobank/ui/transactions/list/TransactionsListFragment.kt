@@ -24,8 +24,18 @@ class TransactionsListFragment : Fragment(), TransactionsAdapter.TransactionItem
     private lateinit var viewModel: TransactionViewModel
     private lateinit var binding: TransactionsListFragmentBinding
     private lateinit var navController: NavController
+    private var platform: String? = null
 
     private val transactionsAdapter: TransactionsAdapter by lazy { TransactionsAdapter(this) }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        platform = TransactionsListFragmentArgs.fromBundle(requireArguments()).platform
+
+        Toast.makeText(requireContext(), "$platform", Toast.LENGTH_SHORT).show()
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
